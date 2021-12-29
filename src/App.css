@@ -8,3 +8,72 @@
 .header {
   text-align: center;
 }
+
+.photos {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 1600px) {
+  .photos {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .photos {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.add-photo {
+  position: relative;
+  display: block;
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, -50%);
+  top: 80%;
+
+
+}
+
+.image-file-input input {
+  opacity: 100;
+}
+
+.image-file-input label {
+  border-style: solid;
+  border-radius: 4px;
+  border-width: 1px;
+  border-color: rgba(2, 136, 209, 0.5);
+  padding: 7px 21px;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  color: #0288d1;
+}
+
+.image-file-input label:hover {
+  border-color: rgba(8, 78, 148, 0.5);
+}
+
+.image-file-input {
+  margin: 15px;
+}
+
+.add-photo-button-dialog {
+  margin: 15px;
+}
+
+.add-photo-button-dialog button {
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 10px;
+}

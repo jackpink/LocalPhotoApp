@@ -23,7 +23,6 @@ const CreateAlbumTextField = ( {setTextOpen} ) => {
     const createNewAlbum = () => {
         if (incorrectFormat(albumName)) {
             console.log("NO");
-            // add error prop to #create-album-textfield
             setError(true);
         } else {
             console.log("create new album", albumName);
