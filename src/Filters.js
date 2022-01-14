@@ -7,6 +7,7 @@ import { getAlbums } from "./backend";
 const Filters = () => {
     const [albums, setAlbums] = useState([]); 
     const [currentAlbums, setCurrentAlbums] = useState([]);
+    const [createResult, setCreateResult] = useState(false);
 
     // Will have a useEffect hook here to get albums 
     
@@ -27,7 +28,7 @@ const Filters = () => {
         } catch {
             console.log("didn't get from backend");
         }
-    }, [])
+    }, [createResult]) // we want this to trigger when we create an album
 
     return(
         <div className="filters">
@@ -36,7 +37,7 @@ const Filters = () => {
                 currentAlbums={currentAlbums} 
                 setCurrentAlbums={setCurrentAlbums}
             />
-            <CreateAlbum />
+            <CreateAlbum setCreateResult={setCreateResult} />
         </div>
     )
 }

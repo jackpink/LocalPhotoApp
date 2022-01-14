@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { createAlbum } from './backend';
 
-const CreateAlbumTextField = ( {setTextOpen} ) => {
+const CreateAlbumTextField = ( {setTextOpen, setCreateResult} ) => {
     const [albumName, setAlbumName] = useState('');
     const [error, setError] = useState(false);
 
@@ -31,6 +31,7 @@ const CreateAlbumTextField = ( {setTextOpen} ) => {
             // Async Call to backend to create a new album
             const createResult = await createAlbum(albumName);
             console.log("create result is ", createResult);
+            setCreateResult(createResult);
         }
     }
 
