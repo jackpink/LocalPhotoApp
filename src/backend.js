@@ -20,15 +20,14 @@ export const getAlbums = async () => {
 
 export const createAlbum = async (albumName) => {
    const newAlbum = { "name" : albumName };
-   axios({
-       method: 'post',
-       url: albumsURL,
-       data: {
-           newAlbum
-       }
-   })
-   .then(data=>console.log(data))
-   .catch(err=>console.log(err))
+   try {
+       const response = await axios.post(albumsURL, newAlbum);
+       console.log("create album success", response);
+       return true
+   } catch (err) {
+       console.log("create album failed", err);
+       return false;
+   }
 }
 
 // backend.getPhotos()

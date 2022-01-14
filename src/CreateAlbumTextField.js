@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { createAlbum } from './backend';
 
 const CreateAlbumTextField = ( {setTextOpen} ) => {
     const [albumName, setAlbumName] = useState('');
@@ -20,7 +21,7 @@ const CreateAlbumTextField = ( {setTextOpen} ) => {
         }
     }
 
-    const createNewAlbum = () => {
+    const createNewAlbum = async () => {
         if (incorrectFormat(albumName)) {
             console.log("NO");
             setError(true);
@@ -28,6 +29,8 @@ const CreateAlbumTextField = ( {setTextOpen} ) => {
             console.log("create new album", albumName);
             setTextOpen(false);
             // Async Call to backend to create a new album
+            const createResult = await createAlbum(albumName);
+            console.log("create result is ", createResult);
         }
     }
 
