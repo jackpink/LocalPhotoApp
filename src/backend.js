@@ -9,11 +9,10 @@ const photosURL = url + 'photos';
 export const getAlbums = async () => {
     try {
         const response = await axios.get(albumsURL);
-        console.log('backend before return', response.data.albums);
         return response.data.albums;
     } catch (err) {
         console.log('get albums error', err)
-        return ['ablum'];
+        return [];
     }
 }
 

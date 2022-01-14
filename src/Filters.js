@@ -5,18 +5,22 @@ import { getAlbums } from "./backend";
 
 
 const Filters = () => {
-    const [albums, setAlbums] = useState(['album1', 'album2', 'album3']); 
+    const [albums, setAlbums] = useState([]); 
     const [currentAlbums, setCurrentAlbums] = useState([]);
 
     // Will have a useEffect hook here to get albums 
-    const getAlbumsFromBackend = async () => {
-        const albumsFromBackend = await getAlbums();
-        console.log('res', albumsFromBackend);
-        setAlbums(albumsFromBackend);
-    }
+    
 
 
     useEffect(() => {
+
+        const getAlbumsFromBackend = async () => {
+            console.log("Call to backend on page load");
+            const albumsFromBackend = await getAlbums();
+            console.log("Response from backend ", albumsFromBackend);
+            setAlbums(albumsFromBackend);
+        }
+
         try {
             getAlbumsFromBackend();
             
