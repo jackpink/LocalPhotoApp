@@ -1,36 +1,17 @@
 import React, { useState, useEffect } from "react";
 import AlbumSelector from "./AlbumSelector";
 import CreateAlbum from "./CreateAlbum";
-import { getAlbums } from "./backend";
+import { useBackend } from "./backend";
 
 
 const Filters = () => {
-    const [albums, setAlbums] = useState([]); 
     const [currentAlbums, setCurrentAlbums] = useState([]);
-    const [createResult, setCreateResult] = useState(false);
 
-    // Will have a useEffect hook here to get albums 
+    const url = 'http://127.0.0.1:8081/';
+    const albumsURL = url + 'albums';
     
-
-
-    useEffect(() => {
-
-        const getAlbumsFromBackend = async () => {
-            console.log("Call to backend on page load");
-            const albumsFromBackend = await getAlbums();
-            console.log("Response from backend ", albumsFromBackend);
-            setAlbums(albumsFromBackend);
-        }
-
-        try {
-            getAlbumsFromBackend();
-            setCreateResult(false); // return createResult value to false
-            
-        } catch {
-            console.log("didn't get from backend");
-        }
-    }, [createResult]) 
-
+    const {data: albums, setCreateResult} = useBackend(albumsURL);
+    console.log(albums);
     return(
         <div className="filters">
             <AlbumSelector 
