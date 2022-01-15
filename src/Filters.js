@@ -24,11 +24,12 @@ const Filters = () => {
 
         try {
             getAlbumsFromBackend();
+            setCreateResult(false); // return createResult value to false
             
         } catch {
             console.log("didn't get from backend");
         }
-    }, [createResult]) // we want this to trigger when we create an album
+    }, [createResult]) 
 
     return(
         <div className="filters">

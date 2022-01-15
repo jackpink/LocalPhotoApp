@@ -23,7 +23,6 @@ const CreateAlbumTextField = ( {setTextOpen, setCreateResult} ) => {
 
     const createNewAlbum = async () => {
         if (incorrectFormat(albumName)) {
-            console.log("NO");
             setError(true);
         } else {
             console.log("create new album", albumName);
@@ -31,7 +30,7 @@ const CreateAlbumTextField = ( {setTextOpen, setCreateResult} ) => {
             // Async Call to backend to create a new album
             const createResult = await createAlbum(albumName);
             console.log("create result is ", createResult);
-            setCreateResult(createResult);
+            setCreateResult(createResult); // This should trigger our useEffect
         }
     }
 
