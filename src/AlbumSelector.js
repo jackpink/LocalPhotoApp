@@ -29,10 +29,10 @@ const AlbumSelector = ({ albums, currentAlbums, setCurrentAlbums}) => {
             input={<OutlinedInput label="Please select Album to view" />}
             renderValue={(selected) => selected.join(', ')}
             >
-            {albums.map((album) => (
-                <MenuItem key={album} value={album}>
-                    <Checkbox checked={currentAlbums.indexOf(album) > -1} />
-                    <ListItemText primary={album} />
+            {albums.albums.map((album) => (
+                <MenuItem key={album.name} value={album.name}>
+                    <Checkbox checked={currentAlbums.indexOf(album.name) > -1} />
+                    <ListItemText primary={album.name} />
                 </MenuItem>
             ))}
             </Select>

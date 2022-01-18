@@ -35,6 +35,7 @@ export const useBackend = (url) =>  {
             setData(dataFromBackend);
         }
 
+    
         try {
             getDataFromBackend();
             setCreateResult(false); // return createResult value to false
@@ -42,7 +43,8 @@ export const useBackend = (url) =>  {
         } catch {
             console.log("didn't get from backend");
         }
-    }, [createResult]) 
+    
+    }, [createResult, url]) 
 
     return {data, setCreateResult}
 }

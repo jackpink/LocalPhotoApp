@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
 import CreateAlbumButton from './CreateAlbumButton';
 import CreateAlbumTextField from './CreateAlbumTextField';
 
-const CreateAlbum = ({ setCreateResult }) => {
+const CreateAlbum = ({ GET_ALBUM, refetch }) => {
     const [textOpen, setTextOpen] = useState(false);
 
 
     return(
         <>
             {textOpen === true ? (
-                <CreateAlbumTextField setTextOpen={setTextOpen} setCreateResult={setCreateResult} />
+                <CreateAlbumTextField setTextOpen={setTextOpen} GET_ALBUM={GET_ALBUM} refetch={refetch} />
             ) : (
                 <CreateAlbumButton setTextOpen={setTextOpen} />
             )}
