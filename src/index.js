@@ -10,12 +10,13 @@ import {
   useQuery,
   gql
 } from "@apollo/client";
+import createUploadLink from "apollo-upload-client/public/createUploadLink.js";
 
 const albumsURL = 'http://127.0.0.1:8081/graphql';
 
 const client = new ApolloClient({
-  uri: albumsURL,
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  link: createUploadLink({ uri: albumsURL })
 });
 
 ReactDOM.render(
