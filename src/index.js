@@ -12,7 +12,7 @@ import {
 } from "@apollo/client";
 import createUploadLink from "apollo-upload-client/public/createUploadLink.js";
 
-const albumsURL = 'http://127.0.0.1:8081/graphql';
+const albumsURL = 'http://127.0.0.1:4000/graphql';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),

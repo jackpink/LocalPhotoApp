@@ -6,7 +6,7 @@ import { createAlbum } from './backend';
 import { useMutation, gql } from '@apollo/client';
 
 
-const CreateAlbumTextField = ( {setTextOpen, GET_ALBUM, refetch } ) => {
+const CreateAlbumTextField = ( {setTextOpen, refetch } ) => {
     const [albumName, setAlbumName] = useState('');
     const [error, setError] = useState(false);
 
@@ -18,9 +18,7 @@ const CreateAlbumTextField = ( {setTextOpen, GET_ALBUM, refetch } ) => {
         }
     `;
 
-    const [ createAlbum ] = useMutation(ADD_ALBUM, {
-        refetchQueries: mutationResult => [{ query: GET_ALBUM }]
-    });
+    const [ createAlbum ] = useMutation(ADD_ALBUM);
 
 
     const handleClickAway = () => {

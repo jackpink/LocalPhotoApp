@@ -4,9 +4,12 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import UploadPhotoButton from './UploadPhotoButton';
+import { Album } from '@mui/icons-material';
+import AlbumSelector from './AlbumSelector';
 
-const AddPhotoDialog = ({ open, setOpen }) => {
+const AddPhotoDialog = ({ open, setOpen, albums }) => {
     const [files, setFiles] = useState([]);
+    const [targetAlbum, setTargetAlbum] = useState("");
     
     const handleClose = () => {
         setOpen(false);
@@ -21,11 +24,11 @@ const AddPhotoDialog = ({ open, setOpen }) => {
     return(
         <Dialog onClose={handleClose} open={open}>
             <DialogTitle>Choose Photo to Upload</DialogTitle>
+            <AlbumSelector albums={albums} currentAlbums={targetAlbum} setCurrentAlbums={setTargetAlbum} multiple={false} />
             <div className="image-file-input">
-                
                 <input type="file" onChange={onChange} id="image" name="image" accept="image/*" multiple/>
             </div>
-            <UploadPhotoButton files={files} setOpen={setOpen} />
+                <UploadPhotoButton files={files} setOpen={setOpen} targetAlbum={targetAlbum} />
         </Dialog>
     )
 }

@@ -8,7 +8,7 @@ import Checkbox from '@mui/material/Checkbox';
 import OutlinedInput from '@mui/material/OutlinedInput';
 
 
-const AlbumSelector = ({ albums, currentAlbums, setCurrentAlbums}) => {
+const AlbumSelector = ({ albums, currentAlbums, setCurrentAlbums, multiple}) => {
 
     const handleChange = (event) => {
         const value = event.target.value;
@@ -23,10 +23,10 @@ const AlbumSelector = ({ albums, currentAlbums, setCurrentAlbums}) => {
             <Select
             labelId="album-filter-label"
             id="album-filter"
-            multiple
+            multiple={multiple}
             value={currentAlbums}
             onChange={handleChange}
-            input={<OutlinedInput label="Please select Album to view" />}
+            input={<OutlinedInput label="Please select Album" />}
             renderValue={(selected) => selected.join(', ')}
             >
             {albums.albums.map((album) => (
