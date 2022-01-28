@@ -12,7 +12,7 @@ mutation ($image: Upload!, $album: String!) {
 `;
 
 
-const UploadPhotoButton = ({ files, setOpen, targetAlbum }) => {
+const UploadPhotoButton = ({ files, setOpen, targetAlbum, refetch }) => {
 
     const getFilePaths = (files) => {
         let filePaths = []
@@ -34,6 +34,7 @@ const UploadPhotoButton = ({ files, setOpen, targetAlbum }) => {
         addPhoto({ variables: {image: files[0], album: targetAlbum[0]} })
         // when response received, close dialog and update photos from backend
         setOpen(false);
+        refetch();
     }
 
     return(    

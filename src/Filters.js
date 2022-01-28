@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import AlbumSelector from "./AlbumSelector";
-import CreateAlbum from "./CreateAlbum";
+import { AlbumContext } from "./App";
 
 
-const Filters = ({ albums, loading, children }) => {
-    const [currentAlbums, setCurrentAlbums] = useState([]);
 
-    console.log(currentAlbums);
+const Filters = ({ albums, loading, setCurrentAlbums,  children }) => {
+    const currentAlbums = useContext(AlbumContext);
 
     return(
         <div className="filters">
@@ -15,7 +14,7 @@ const Filters = ({ albums, loading, children }) => {
             ) : (
                 <AlbumSelector 
                     albums={albums}
-                    currentAlbums={currentAlbums} 
+                    currentAlbums={currentAlbums}
                     setCurrentAlbums={setCurrentAlbums}
                     multiple={true}
                 />

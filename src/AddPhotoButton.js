@@ -3,7 +3,7 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import AddPhotoDialog from './AddPhotoDialog';
 
-const AddPhotoButton = ({ albums }) => {
+const AddPhotoButton = ({ albums, refetch }) => {
     const [open, setOpen] = useState(false);
 
     const openDialog = () => {
@@ -16,7 +16,7 @@ const AddPhotoButton = ({ albums }) => {
                 <AddIcon />
                 <p>Add Photo</p>
             </Fab>
-            <AddPhotoDialog open={open} setOpen={setOpen} albums={albums}/>
+            <AddPhotoDialog open={open} setOpen={setOpen} albums={albums} refetch={refetch} />
         </div>
     )
 }

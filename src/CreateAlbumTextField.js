@@ -4,19 +4,13 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { createAlbum } from './backend';
 import { useMutation, gql } from '@apollo/client';
-
+import { ADD_ALBUM } from './queries';
 
 const CreateAlbumTextField = ( {setTextOpen, refetch } ) => {
     const [albumName, setAlbumName] = useState('');
     const [error, setError] = useState(false);
 
-    const ADD_ALBUM = gql`
-        mutation AddAlbum($name: String!) {
-            addAlbum(name: $name) {
-                name
-            }
-        }
-    `;
+
 
     const [ createAlbum ] = useMutation(ADD_ALBUM);
 
