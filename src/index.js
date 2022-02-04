@@ -7,8 +7,6 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  useQuery,
-  gql
 } from "@apollo/client";
 import createUploadLink from "apollo-upload-client/public/createUploadLink.js";
 
